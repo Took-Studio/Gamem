@@ -121,6 +121,9 @@ public struct RangeGm
             return new(Value, Y);
         return this;
     }
+    /// <summary>
+    /// Adds two ranges together.
+    /// </summary>
     public static RangeGm operator +(RangeGm range, int num)
     {
         return new RangeGm
@@ -129,7 +132,11 @@ public struct RangeGm
             Y = range.Y + num
         };
     }
+    /// <inheritdoc cref="operator +(RangeGm, int)"/>
     public static RangeGm operator +(int num, RangeGm range) => range + num;
+    /// <summary>
+    /// Subtracts one range from another.
+    /// </summary>
     public static RangeGm operator -(RangeGm range, int num)
     {
         return new RangeGm
@@ -138,6 +145,7 @@ public struct RangeGm
             Y = range.Y - num
         };
     }
+    /// <inheritdoc cref="operator -(RangeGm, int)"/>
     public static RangeGm operator -(int num, RangeGm range)
     {
         return new RangeGm
@@ -146,6 +154,9 @@ public struct RangeGm
             Y = num - range.Y
         };
     }
+    /// <summary>
+    /// Multiplies one range by another.
+    /// </summary>
     public static RangeGm operator *(RangeGm range, int num)
     {
         return new RangeGm
@@ -154,7 +165,11 @@ public struct RangeGm
             Y = range.Y * num
         };
     }
+    /// <inheritdoc cref="operator *(RangeGm, int)"/>
     public static RangeGm operator *(int num, RangeGm range) => range * num;
+    /// <summary>
+    /// Divides one range by another.
+    /// </summary>
     public static RangeGm operator /(RangeGm range, int num)
     {
         return new RangeGm
@@ -163,6 +178,7 @@ public struct RangeGm
             Y = range.Y / num
         };
     }
+    /// <inheritdoc cref="operator /(RangeGm, int)"/>
     public static RangeGm operator /(int num, RangeGm range)
     {
         return new RangeGm

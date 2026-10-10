@@ -74,12 +74,26 @@ public struct RangeGm
     /// </summary>
     /// <param name="Value">Value to check</param>
     /// <returns>True if the range contains the value, if not false</returns>
-    public bool Contains(int Value) => Value >= X && Y <= Value;
+    /// <example>
+    /// <code>
+    /// RangeGm range = new(0, 100);
+    /// Console.WriteLine(range.Contains(35)); // true
+    /// Console.WriteLine(range.Contains(101)); // false
+    /// </code>
+    /// </example>
+    public bool Contains(int Value) => Value >= X && Value <= Y;
     /// <summary>
     /// Checks if the range contains the specified range.
     /// </summary>
-    /// <param name="Other">Range to check</param>
-    /// <returns>True if the range contains the range, if not false</returns>
+    /// <param name="Other">Value to check</param>
+    /// <returns>True if the range contains the value, if not false</returns>
+    /// <example>
+    /// <code>
+    /// RangeGm range = new(0, 100);
+    /// Console.WriteLine(range.Contains(35)); // true
+    /// Console.WriteLine(range.Contains(101)); // false
+    /// </code>
+    /// </example>
     public bool Contains(RangeGm Other) => Other.X >= X && Other.Y <= Y;
     /// <summary>
     /// Checks if the range overlaps with the specified range.
@@ -105,8 +119,11 @@ public struct RangeGm
             return new(X, Value);
         else if (Value <= X)
             return new(Value, Y);
-        return new RangeGm(0, 0);
+        return this;
     }
+    /// <summary>
+    /// Adds two ranges together.
+    /// </summary>
     public static RangeGm operator +(RangeGm range, int num)
     {
         return new RangeGm
@@ -115,7 +132,11 @@ public struct RangeGm
             Y = range.Y + num
         };
     }
+    /// <inheritdoc cref="operator +(RangeGm, int)"/>
     public static RangeGm operator +(int num, RangeGm range) => range + num;
+    /// <summary>
+    /// Subtracts one range from another.
+    /// </summary>
     public static RangeGm operator -(RangeGm range, int num)
     {
         return new RangeGm
@@ -124,6 +145,7 @@ public struct RangeGm
             Y = range.Y - num
         };
     }
+    /// <inheritdoc cref="operator -(RangeGm, int)"/>
     public static RangeGm operator -(int num, RangeGm range)
     {
         return new RangeGm
@@ -132,6 +154,9 @@ public struct RangeGm
             Y = num - range.Y
         };
     }
+    /// <summary>
+    /// Multiplies one range by another.
+    /// </summary>
     public static RangeGm operator *(RangeGm range, int num)
     {
         return new RangeGm
@@ -140,7 +165,11 @@ public struct RangeGm
             Y = range.Y * num
         };
     }
+    /// <inheritdoc cref="operator *(RangeGm, int)"/>
     public static RangeGm operator *(int num, RangeGm range) => range * num;
+    /// <summary>
+    /// Divides one range by another.
+    /// </summary>
     public static RangeGm operator /(RangeGm range, int num)
     {
         return new RangeGm
@@ -149,6 +178,7 @@ public struct RangeGm
             Y = range.Y / num
         };
     }
+    /// <inheritdoc cref="operator /(RangeGm, int)"/>
     public static RangeGm operator /(int num, RangeGm range)
     {
         return new RangeGm
