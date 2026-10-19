@@ -28,6 +28,10 @@ public struct RangeGm
         }
     }
     /// <summary>
+    /// An empty RangeGm (RangeGm with X = 0; Y = 0)
+    /// </summary>
+    public static RangeGm Empty => new(0, 0);
+    /// <summary>
     /// Initializes a new instance of the <see cref="RangeGm"/> struct.
     /// </summary>
     /// <param name="x">The initial X-coordinate or start value.</param>
@@ -120,6 +124,19 @@ public struct RangeGm
         else if (Value <= X)
             return new(Value, Y);
         return this;
+    }
+    /// <summary>
+    /// Returns the intersection of two ranges.
+    /// </summary>
+    /// <param name="other">The other range</param>
+    /// <returns>The intersection of two ranges</returns>
+    public RangeGm Intersect(RangeGm other)
+    {
+        if (Overlaps(other))
+        {
+            return new RangeGm(Math.Max(X, other.X), Math.Min(Y, other.Y));
+        }
+        return Empty;
     }
     /// <summary>
     /// Adds two ranges together.
