@@ -139,6 +139,16 @@ public struct RangeGm
         return Empty;
     }
     /// <summary>
+    /// Normalizes the range so that X is less than Y.
+    /// </summary>
+    /// <returns>The normalized range</returns>
+    public RangeGm Normalize()
+    {
+        if (X > Y)
+            return new(Y, X);
+        return this;
+    }
+    /// <summary>
     /// Adds two ranges together.
     /// </summary>
     public static RangeGm operator +(RangeGm range, int num)
