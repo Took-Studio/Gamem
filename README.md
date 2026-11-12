@@ -10,8 +10,10 @@
 
 </div>
 
-<h3 align="center"> If you need vectors for Godot, MonoGame or Stride, use these extensions: </h3>
+<h3 align="center"> If you need vectors for Unity, Godot, MonoGame or Stride, use these extensions: </h3>
 
+- **[Gamem.Unity](https://www.nuget.org/packages/Gamem.Unity) for Unity (⚠️ UNITY PROJECTS ONLY)** 
+[![NuGet Version](https://img.shields.io/nuget/v/Gamem.Unity?logo=nuGet&labelColor=28333C&color=111F28)](https://www.nuget.org/packages/Gamem.Unity) [![NuGet Downloads](https://img.shields.io/nuget/dt/Gamem.Unity?logo=nuget&labelColor=28333C&color=111F28)](https://www.nuget.org/packages/Gamem.Unity)
 - **[Gamem.Godot](https://www.nuget.org/packages/Gamem.Godot) for Godot** 
 [![NuGet Version](https://img.shields.io/nuget/v/Gamem.Godot?logo=nuGet&labelColor=28333C&color=478CBF)](https://www.nuget.org/packages/Gamem.Godot) [![NuGet Downloads](https://img.shields.io/nuget/dt/Gamem.Godot?logo=nuget&labelColor=28333C&color=478CBF)](https://www.nuget.org/packages/Gamem.Godot)
 - **[Gamem.MonoGame](https://www.nuget.org/packages/Gamem.MonoGame) for MonoGame** 
@@ -23,9 +25,12 @@
 
 <h2 align="center">Features</h2>
 
-- **MathGm**: `RandomRange`, `SmoothStep`, `Lerp`, `InverseLerp`, `SmoothDamp` and more.
-- **PhysicsGm**: `ApplyGravity`, `ApplyFriction`, `AddForce`, `AddImpulse`, `ClampVelocity`, `Bounce` and more.
-- **GeometryGm**: `Reflect`, `ToRadians`, `ToDegrees`, `GetDistance`, `CheckCircleVsCircle`, `CheckAABBVsAABB` and more
+- **MathGm**: `RandomRange`, `SmoothStep`, `Lerp`, `InverseLerp`, `SmoothDamp` and more
+- **PhysicsGm**: `ApplyGravity`, `ApplyFriction`, `AddForce`, `AddImpulse`, `ClampVelocity`, `Bounce` and more
+- **GeometryGm**: `Reflect`, `ToRadians`, `ToDegrees`, `GetDistance`, `NormalizeAngle` and more
+- **CollisionGm**: `CheckCircleVsCircle`, `CheckAABBVsAABB`, `CheckCircleVsAABB`, `CheckSegmentVsSegment`
+- **VectorGm**: `GetDotProduct`, `GetDotProduct3D`, `GetCrossProduct`, `GetAngleBetween`, `ClosestPointOnLine` and more
+- **RandomGm**: `RollChance`, `RandomAngleDegrees`, `RandomAngleRadians`, `RandomSign` and more
 <h2 align="center"> Project Structure </h2>
 
 <details>
@@ -73,6 +78,9 @@ Gamem
     │   │   │   ├── images
     │   │   │   │   └── logo.png
     │   │   │   ├── MathGm
+    │   │   │   │   ├── RandomGm
+    │   │   │   │   │   ├── RandomGm.net8.cs
+    │   │   │   │   │   └── RandomGm.netstandard.cs
     │   │   │   │   ├── MathGm.net8.cs
     │   │   │   │   └── MathGm.netstandard.cs
     │   │   │   ├── PhysicsGm
@@ -167,6 +175,7 @@ npm install gamem-wasm
 **(C#) To use Gamem methods type this:**
 ```csharp
 using Gamem;
+using Gamem.Unity; // If you use Unity extension
 using Gamem.Godot; // If you use Godot extension
 using Gamem.MonoGame; // If you use MonoGame extension
 using Gamem.Stride; // If you use Stride extension
