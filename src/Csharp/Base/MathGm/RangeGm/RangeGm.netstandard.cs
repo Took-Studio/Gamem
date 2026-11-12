@@ -38,6 +38,8 @@ public readonly struct RangeGm
     /// <param name="y">The initial Y-coordinate or end value.</param>
     public RangeGm(int x, int y)
     {
+        if (x > y)
+            throw new ArgumentException("X cannot be greater than Y for a valid range.", nameof(x));
         X = x;
         Y = y;
     }
