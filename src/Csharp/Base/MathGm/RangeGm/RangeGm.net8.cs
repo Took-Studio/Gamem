@@ -190,9 +190,12 @@ public readonly struct RangeGm
     /// </summary>
     public static RangeGm operator -(int num, RangeGm range)
     {
+        int var1 = num - range.X;
+        int var2 = num - range.Y;
+
         return new RangeGm(
-            num - range.X,
-            num - range.Y
+            Math.Min(var1, var2),
+            Math.Max(var1, var2)
         );
     }
     /// <summary>
@@ -200,9 +203,12 @@ public readonly struct RangeGm
     /// </summary>
     public static RangeGm operator *(RangeGm range, int num)
     {
+        int var1 = range.X * num;
+        int var2 = range.Y * num;
+
         return new RangeGm(
-            range.X * num,
-            range.Y * num
+            Math.Min(var1, var2),
+            Math.Max(var1, var2)
         );
     }
     /// <inheritdoc cref="operator *(RangeGm, int)"/>
@@ -212,17 +218,23 @@ public readonly struct RangeGm
     /// </summary>
     public static RangeGm operator /(RangeGm range, int num)
     {
+        int var1 = range.X / num;
+        int var2 = range.Y / num;
+
         return new RangeGm(
-            range.X / num,
-            range.Y / num
+            Math.Min(var1, var2),
+            Math.Max(var1, var2)
         );
     }
     /// <inheritdoc cref="operator /(RangeGm, int)"/>
     public static RangeGm operator /(int num, RangeGm range)
     {
+        int var1 = num / range.X;
+        int var2 = num / range.Y;
+
         return new RangeGm(
-            num / range.X,
-            num / range.Y
+            Math.Min(var1, var2),
+            Math.Max(var1, var2)
         );
     }
 }
