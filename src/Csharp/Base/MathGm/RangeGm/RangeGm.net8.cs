@@ -7,16 +7,16 @@ namespace Gamem;
 /// <summary>
 /// Represents a 2D integer range or coordinate pair.
 /// </summary>
-public struct RangeGm
+public readonly struct RangeGm
 {
     /// <summary>
     /// The X-coordinate or start value.
     /// </summary>
-    public int X { get; set; }
+    public int X { get; }
     /// <summary>
     /// The Y-coordinate or start value.
     /// </summary>
-    public int Y { get; set; }
+    public int Y { get; }
     /// <summary>
     /// Checks if the range is valid: X &lt;= Y returns true, if not returns false
     /// </summary>
@@ -162,69 +162,65 @@ public struct RangeGm
         return num;
     }
     /// <summary>
-    /// Adds two ranges together.
+    /// Adds one range to specified number.
     /// </summary>
     public static RangeGm operator +(RangeGm range, int num)
     {
-        return new RangeGm
-        {
-            X = range.X + num,
-            Y = range.Y + num
-        };
+        return new RangeGm(
+            range.X + num,
+            range.Y + num
+        );
     }
     /// <inheritdoc cref="operator +(RangeGm, int)"/>
     public static RangeGm operator +(int num, RangeGm range) => range + num;
     /// <summary>
-    /// Subtracts one range from another.
+    /// Subtracts the specified number from one range.
     /// </summary>
     public static RangeGm operator -(RangeGm range, int num)
     {
-        return new RangeGm
-        {
-            X = range.X - num,
-            Y = range.Y - num
-        };
-    }
-    /// <inheritdoc cref="operator -(RangeGm, int)"/>
-    public static RangeGm operator -(int num, RangeGm range)
-    {
-        return new RangeGm
-        {
-            X = num - range.X,
-            Y = num - range.Y
-        };
+        return new RangeGm(
+            range.X - num,
+            range.Y - num
+        );
     }
     /// <summary>
-    /// Multiplies one range by another.
+    /// Subtracts one range from the specified number.
+    /// </summary>
+    public static RangeGm operator -(int num, RangeGm range)
+    {
+        return new RangeGm(
+            num - range.X,
+            num - range.Y
+        );
+    }
+    /// <summary>
+    /// Multiplies one range by the specified number.
     /// </summary>
     public static RangeGm operator *(RangeGm range, int num)
     {
-        return new RangeGm
-        {
-            X = range.X * num,
-            Y = range.Y * num
-        };
+        return new RangeGm(
+            range.X * num,
+            range.Y * num
+        );
     }
     /// <inheritdoc cref="operator *(RangeGm, int)"/>
     public static RangeGm operator *(int num, RangeGm range) => range * num;
     /// <summary>
-    /// Divides one range by another.
+    /// Divides one range by the specified number.
     /// </summary>
     public static RangeGm operator /(RangeGm range, int num)
     {
-        return new RangeGm
-        {
-            X = range.X / num,
-            Y = range.Y / num
-        };
+        return new RangeGm(
+            range.X / num,
+            range.Y / num
+        );
     }
     /// <inheritdoc cref="operator /(RangeGm, int)"/>
     public static RangeGm operator /(int num, RangeGm range)
     {
-        return new RangeGm
-        {
-            X = num / range.X,
-            Y = num / range.Y
-        };
+        return new RangeGm(
+            num / range.X,
+            num / range.Y
+        );
     }
 }
