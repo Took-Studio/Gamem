@@ -18,7 +18,7 @@ public struct RangeGm
     /// </summary>
     public int Y { get; set; }
     /// <summary>
-    /// Checks if the range is valid: X > Y returns true, if not returns false
+    /// Checks if the range is valid: X &lt;= Y returns true, if not returns false
     /// </summary>
     public readonly bool IsValid
     {
