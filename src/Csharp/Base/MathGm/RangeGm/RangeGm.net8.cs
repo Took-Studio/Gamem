@@ -164,6 +164,11 @@ public readonly struct RangeGm
         return num;
     }
     /// <summary>
+    /// Returns a random value between the range's bounds.
+    /// </summary>
+    /// <returns>A random value</returns>
+    public int GetRandomValue() => Random.Shared.Next(X, Y);
+    /// <summary>
     /// Adds one range to specified number.
     /// </summary>
     public static RangeGm operator +(RangeGm range, int num)
