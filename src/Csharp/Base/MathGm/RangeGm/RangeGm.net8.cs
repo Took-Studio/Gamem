@@ -149,6 +149,19 @@ public struct RangeGm
         return this;
     }
     /// <summary>
+    /// Clamps the specified value between the range's bounds.
+    /// </summary>
+    /// <param name="num">Value to clamp</param>
+    /// <returns>The clamped value</returns>
+    public int Clamp(int num)
+    {
+        if (num < X)
+            return X;
+        if (num > Y)
+            return Y;
+        return num;
+    }
+    /// <summary>
     /// Adds two ranges together.
     /// </summary>
     public static RangeGm operator +(RangeGm range, int num)
