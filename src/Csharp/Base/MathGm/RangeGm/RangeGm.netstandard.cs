@@ -46,7 +46,7 @@ public struct RangeGm
     /// </summary>
     public static bool IsValidCheck(int X, int Y)
     {
-        return X < Y;
+        return X <= Y;
     }
     /// <summary>
     /// Returns a string representation of the current range.
