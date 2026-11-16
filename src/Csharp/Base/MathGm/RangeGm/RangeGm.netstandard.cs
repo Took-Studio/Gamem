@@ -7,7 +7,7 @@ namespace Gamem;
 /// <summary>
 /// Represents a 2D integer range or coordinate pair.
 /// </summary>
-public readonly struct RangeGm
+public readonly partial struct RangeGm
 {
     /// <summary>
     /// The X-coordinate or start value.
