@@ -59,21 +59,25 @@ public readonly partial struct RangeGm
     /// Returns the smaller of two 32-bit signed integers.
     /// </summary>
     /// <returns>The smaller of the two parameters.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public int Min() => Math.Min(X, Y);
     /// <summary>
     /// Returns the larger of two 32-bit signed integers.
     /// </summary>
     /// <returns>The larger of the two parameters.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public int Max() => Math.Max(X, Y);
     /// <summary>
     /// Returns the length of the range.
     /// </summary>
     /// <returns>The range's length</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public int Length() => Y - X;
     /// <summary>
     /// Returns the center of the range.
     /// </summary>
     /// <returns>The range's center</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public int Center() => (X + Y) / 2;
     /// <summary>
     /// Checks if the range contains the specified value.
@@ -87,6 +91,7 @@ public readonly partial struct RangeGm
     /// Console.WriteLine(range.Contains(101)); // false
     /// </code>
     /// </example>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public bool Contains(int Value) => Value >= X && Value <= Y;
     /// <summary>
     /// Checks if the range contains the specified range.
@@ -100,12 +105,14 @@ public readonly partial struct RangeGm
     /// Console.WriteLine(range.Contains(101)); // false
     /// </code>
     /// </example>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public bool Contains(RangeGm Other) => Other.X >= X && Other.Y <= Y;
     /// <summary>
     /// Checks if the range overlaps with the specified range.
     /// </summary>
     /// <param name="Other">Range to check</param>
     /// <returns>True if the ranges overlap, if not false</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public bool Overlaps(RangeGm Other) => X <= Other.Y && Other.X <= Y;
     /// <summary>
     /// Returns the union of two ranges.
@@ -113,6 +120,7 @@ public readonly partial struct RangeGm
     /// <param name="range1">The first range</param>
     /// <param name="range2">The second range</param>
     /// <returns>The union of two ranges</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static RangeGm Union(RangeGm range1, RangeGm range2) => new(Math.Min(range1.Min(), range2.Min()), Math.Max(range1.Max(), range2.Max()));
     /// <summary>
     /// Expands the range to include the specified value.
@@ -144,6 +152,7 @@ public readonly partial struct RangeGm
     /// Normalizes the range so that X is less than Y.
     /// </summary>
     /// <returns>The normalized range</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public RangeGm Normalize()
     {
         if (X > Y)
@@ -155,6 +164,7 @@ public readonly partial struct RangeGm
     /// </summary>
     /// <param name="num">Value to clamp</param>
     /// <returns>The clamped value</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public int Clamp(int num)
     {
         if (num < X)
@@ -186,6 +196,7 @@ public readonly partial struct RangeGm
     /// </summary>
     /// <param name="value">Value to wrap</param>
     /// <returns>The wrapped value</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public int Wrap(int value)
     {
         if (X == Y)
@@ -203,12 +214,14 @@ public readonly partial struct RangeGm
     /// </summary>
     /// <param name="t">Value to lerp</param>
     /// <returns>The lerped value</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public float Lerp(float t) => X + (Y - X) * (float)Math.Max(0.0, Math.Min(t, 1.0));
     /// <summary>
     /// Interpolates a value within the range without clamping.
     /// </summary>
     /// <param name="t">Value to lerp</param>
     /// <returns>The lerped value</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public float LerpUnclamped(float t) => X + (Y - X) * t;
     /// <summary>
     /// Adds one range to specified number.
