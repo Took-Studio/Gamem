@@ -182,6 +182,23 @@ public readonly struct RangeGm
         return X - other.Y;
     }
     /// <summary>
+    /// Wraps the specified value within the range.
+    /// </summary>
+    /// <param name="value">Value to wrap</param>
+    /// <returns>The wrapped value</returns>
+    public int Wrap(int value)
+    {
+        if (X == Y)
+            return X;
+
+        int length = Y - X;
+        int offset = (value - X) % length;
+        if (offset < 0)
+            offset += length;
+
+        return X + offset;
+    }
+    /// <summary>
     /// Adds one range to specified number.
     /// </summary>
     public static RangeGm operator +(RangeGm range, int num)
