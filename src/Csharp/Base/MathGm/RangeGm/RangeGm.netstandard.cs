@@ -169,6 +169,19 @@ public readonly struct RangeGm
     /// <returns>A random value</returns>
     public int GetRandomValue() => RandomGm.RandomSharedPolyfill.Shared.Next(X, Y);
     /// <summary>
+    /// Returns the distance between two ranges.
+    /// </summary>
+    /// <param name="other">The other range</param>
+    /// <returns>The distance</returns>
+    public int DistanceTo(RangeGm other)
+    {
+        if (Overlaps(other))
+            return 0;
+        if (Y < other.X)
+            return other.X - Y;
+        return X - other.Y;
+    }
+    /// <summary>
     /// Adds one range to specified number.
     /// </summary>
     public static RangeGm operator +(RangeGm range, int num)
