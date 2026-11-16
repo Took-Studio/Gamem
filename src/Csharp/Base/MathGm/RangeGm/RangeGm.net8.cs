@@ -199,6 +199,18 @@ public readonly partial struct RangeGm
         return X + offset;
     }
     /// <summary>
+    /// Interpolates a value within the range.
+    /// </summary>
+    /// <param name="t">Value to lerp</param>
+    /// <returns>The lerped value</returns>
+    public float Lerp(float t) => X + (Y - X) * (float)Math.Clamp(t, 0.0, 1.0);
+    /// <summary>
+    /// Interpolates a value within the range without clamping.
+    /// </summary>
+    /// <param name="t">Value to lerp</param>
+    /// <returns>The lerped value</returns>
+    public float LerpUnclamped(float t) => X + (Y - X) * t;
+    /// <summary>
     /// Adds one range to specified number.
     /// </summary>
     public static RangeGm operator +(RangeGm range, int num)
