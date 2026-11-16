@@ -6,3 +6,4 @@ gamem_wasm.js
 gamem_wasm.wasm
 Gamem.Unity.csproj.user
 .vscode/
+.vs/
