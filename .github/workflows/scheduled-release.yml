@@ -60,7 +60,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git checkout main
-          git merge "origin/$TARGET_BRANCH" --no-ff -m "release: merge $TARGET_BRANCH"
+          git merge "origin/$TARGET_BRANCH" --no-ff -X theirs -m "release: merge $TARGET_BRANCH"
           git push origin main
           git push origin --delete "$TARGET_BRANCH"
 
