@@ -58,6 +58,11 @@ RangeGm d = range / 2; // (5; 10)
 - Math calculations
 - Collision and overlap checks
 
+## New methods
+- `CalculateKineticEnergy` - Calculates the kinetic energy of an object based on its mass and speed. (PhysicsGm)
+- `EaseOutQuad` - Calculates a quadratic Ease-Out interpolation value, producing a smooth deceleration effect. (MathGm)
+- `CheckPointVsCircle` - Checks if a 2D point is inside or on the boundary of a circle. (CollisionGm)
+
 **Enjoy RangeGm!!!**
 
 _it took 2 months to make it, cuz I need to studyyyy_
