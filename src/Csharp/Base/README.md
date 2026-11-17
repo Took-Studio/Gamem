@@ -12,6 +12,9 @@
 - **[Gamem.Stride](https://www.nuget.org/packages/Gamem.Stride) for Stride** 
 [![NuGet Version](https://img.shields.io/nuget/v/Gamem.Stride?logo=nuGet&labelColor=28333C&color=FFFFFF)](https://www.nuget.org/packages/Gamem.Stride) [![NuGet Downloads](https://img.shields.io/nuget/dt/Gamem.Stride?logo=nuget&labelColor=28333C&color=FFFFFF)](https://www.nuget.org/packages/Gamem.Stride)
 
+>[!NOTE]
+> 3.3.1 is the same as 3.3.0, I just had some problems with README, but they are the same, nothing changed except README 
+
 **Gamem is a C# library of Physics, Math and Geometry helpers, created for you to type code in one line instead of huge formulas. It works everywhere! From Console to [Unity](https://unity.com), [Godot](https://godotengine.org), [MonoGame](https://monogame.net) and other engines and frameworks!**
 
 ## Features
