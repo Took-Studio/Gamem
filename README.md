@@ -23,6 +23,9 @@
 
 **Gamem is a C# and TypeScript library of Physics, Math and Geometry helpers, created for you to type code in one line instead of huge formulas. It works everywhere! From Console to [Unity](https://unity.com), [Godot](https://godotengine.org), [MonoGame](https://monogame.net) and different JS engines!**
 
+> [!WARNING]
+> gamem-wasm (Gamem for TS/JS) is now **legacy**. Do NOT download it, because it main contain bugs and security issues. You can use the code under the [MIT license](https://github.com/Took-Studio/Gamem/blob/main/LICENSE)
+
 <h2 align="center">Features</h2>
 
 - **MathGm**: `RandomRange`, `SmoothStep`, `Lerp`, `InverseLerp`, `SmoothDamp` and more
@@ -31,6 +34,7 @@
 - **CollisionGm**: `CheckCircleVsCircle`, `CheckAABBVsAABB`, `CheckCircleVsAABB`, `CheckSegmentVsSegment`
 - **VectorGm**: `GetDotProduct`, `GetDotProduct3D`, `GetCrossProduct`, `GetAngleBetween`, `ClosestPointOnLine` and more
 - **RandomGm**: `RollChance`, `RandomAngleDegrees`, `RandomAngleRadians`, `RandomSign` and more
+- **RangeGm**: struct for **ranges**, `DistanceTo`, `Center`, `Wrap`, `Lerp`, `Overlaps` and more
 <h2 align="center"> Project Structure </h2>
 
 <details>
