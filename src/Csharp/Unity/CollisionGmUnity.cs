@@ -147,4 +147,28 @@ public static class CollisionGmUnity
 
         return (D != 0.0) && (0.0 <= t1 && t1 <= 1.0) && (0.0 <= t2 && t2 <= 1.0);
     }
+    /// <summary>
+    /// Checks if a 2D point is inside or on the boundary of a circle.
+    /// </summary>
+    /// <param name="p">The 2D coordinates of the point to test.</param>
+    /// <param name="circle">The 2D coordinates of the circle's center.</param>
+    /// <param name="radius">The radius of the circle.</param>
+    /// <returns><see langword="true"/> if the point lies inside or on the boundary of the circle; otherwise, <see langword="false"/>.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static bool CheckPointVsCircle(Vector2 p, Vector2 circle, float radius)
+    {
+        return GeometryGmUnity.GetDistanceSquared(p, circle) <= (radius * radius);
+    }
+    /// <summary>
+    /// Checks if a 2D point is inside or on the boundary of a circle.
+    /// </summary>
+    /// <param name="p">The 2D coordinates of the point to test.</param>
+    /// <param name="circle">The 2D coordinates of the circle's center.</param>
+    /// <param name="radius">The radius of the circle.</param>
+    /// <returns><see langword="true"/> if the point lies inside or on the boundary of the circle; otherwise, <see langword="false"/>.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static bool CheckPointVsCircle(float2 p, float2 circle, float radius)
+    {
+        return GeometryGmUnity.GetDistanceSquared(p, circle) <= (radius * radius);
+    }
 }
