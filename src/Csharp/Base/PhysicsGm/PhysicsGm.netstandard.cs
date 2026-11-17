@@ -377,5 +377,27 @@ namespace Gamem
         /// <returns>The calculated time to reach the maximum height in seconds.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float CalculateTimeToApex(float velocityY, float gravity) => velocityY / Math.Abs(gravity);
+        /// <summary>
+        /// Calculates the kinetic energy of an object based on its mass and speed.
+        /// </summary>
+        /// <param name="mass">The mass of the object.</param>
+        /// <param name="speed">The scalar speed (magnitude) of the object.</param>
+        /// <returns>The calculated kinetic energy.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double CalculateKineticEnergy(double mass, double speed)
+        {
+            return 0.5 * mass * (speed * speed);
+        }
+        /// <summary>
+        /// Calculates the kinetic energy of an object based on its mass and speed.
+        /// </summary>
+        /// <param name="mass">The mass of the object.</param>
+        /// <param name="speed">The scalar speed (magnitude) of the object.</param>
+        /// <returns>The calculated kinetic energy.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float CalculateKineticEnergy(float mass, float speed)
+        {
+            return 0.5f * mass * (speed * speed);
+        }
     }
 }

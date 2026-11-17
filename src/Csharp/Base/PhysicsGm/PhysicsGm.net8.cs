@@ -280,4 +280,16 @@ public static partial class PhysicsGm
     /// <returns>The calculated time to reach the maximum height in seconds.</returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static T CalculateTimeToApex<T>(T velocityY, T gravity) where T : IFloatingPointIeee754<T> => velocityY / T.Abs(gravity);
+    /// <summary>
+    /// Calculates the kinetic energy of an object based on its mass and speed.
+    /// </summary>
+    /// <typeparam name="T">A floating-point type that implements <see cref="IFloatingPointIeee754{T}"/>.</typeparam>
+    /// <param name="mass">The mass of the object.</param>
+    /// <param name="speed">The scalar speed (magnitude) of the object.</param>
+    /// <returns>The calculated kinetic energy.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static T CalculateKineticEnergy<T>(T mass, T speed) where T : IFloatingPointIeee754<T>
+    {
+        return Cache<T>.THalf * mass * (speed * speed);
+    }
 }
