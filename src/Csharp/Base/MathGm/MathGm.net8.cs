@@ -395,4 +395,16 @@ public static partial class MathGm
             return T.One;
         return T.Pow(Cache<T>.T2, -Cache<T>.T10 * t) * T.Sin((Cache<T>.T10 * t - Cache<T>.T075) * Cache<T>.T2PI / Cache<T>.T3) + T.One;
     }
+    /// <summary>
+    /// Calculates a quadratic Ease-Out interpolation value, producing a smooth deceleration effect.
+    /// </summary>
+    /// <typeparam name="T">A floating-point type that implements <see cref="IFloatingPointIeee754{T}"/>.</typeparam>
+    /// <param name="t">The normalized progress time, typically clamped in the range [0.0, 1.0].</param>
+    /// <returns>The smoothed progress value between 0.0 and 1.0.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static T EaseOutQuad<T>(T t) where T : IFloatingPointIeee754<T>
+    {
+        T tt = T.Clamp(t, T.Zero, T.One);
+        return tt * (Cache<T>.T2 - tt);
+    }
 }

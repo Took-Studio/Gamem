@@ -162,4 +162,32 @@ public static partial class CollisionGm
 
         return (D != 0.0) && (0.0 <= t1 && t1 <= 1.0) && (0.0 <= t2 && t2 <= 1.0);
     }
+    /// <summary>
+    /// Checks if a 2D point is inside or on the boundary of a circle.
+    /// </summary>
+    /// <typeparam name="T">A floating-point type that implements <see cref="IFloatingPointIeee754{T}"/>.</typeparam>
+    /// <param name="px">The X-coordinate of the point to test.</param>
+    /// <param name="py">The Y-coordinate of the point to test.</param>
+    /// <param name="circleX">The X-coordinate of the circle's center.</param>
+    /// <param name="circleY">The Y-coordinate of the circle's center.</param>
+    /// <param name="radius">The radius of the circle.</param>
+    /// <returns><see langword="true"/> if the point lies inside or on the boundary of the circle; otherwise, <see langword="false"/>.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static bool CheckPointVsCircle<T>(T px, T py, T circleX, T circleY, T radius) where T : IFloatingPointIeee754<T>
+    {
+        return GeometryGm.GetDistanceSquared(px, py, circleX, circleY) <= (radius * radius);
+    }
+
+    /// <summary>
+    /// Checks if a 2D point is inside or on the boundary of a circle.
+    /// </summary>
+    /// <param name="p">The 2D coordinates of the point to test.</param>
+    /// <param name="circle">The 2D coordinates of the circle's center.</param>
+    /// <param name="radius">The radius of the circle.</param>
+    /// <returns><see langword="true"/> if the point lies inside or on the boundary of the circle; otherwise, <see langword="false"/>.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static bool CheckPointVsCircle(Vector2 p, Vector2 circle, float radius)
+    {
+        return GeometryGm.GetDistanceSquared(p, circle) <= (radius * radius);
+    }
 }

@@ -592,5 +592,27 @@ namespace Gamem
                 return 1.0;
             return Math.Pow(2.0, -10.0 * t) * Math.Sin((10.0 * t - 0.75) * (2.0 * Math.PI) / 3.0) + 1.0;
         }
+        /// <summary>
+        /// Calculates a quadratic Ease-Out interpolation value, producing a smooth deceleration effect.
+        /// </summary>
+        /// <param name="t">The normalized progress time, typically clamped in the range [0.0, 1.0].</param>
+        /// <returns>The smoothed progress value between 0.0 and 1.0.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double EaseOutQuad(double t)
+        {
+            double tt = Math.Max(1.0, Math.Min(t, 0.0));
+            return tt * (2.0 - tt);
+        }
+        /// <summary>
+        /// Calculates a quadratic Ease-Out interpolation value, producing a smooth deceleration effect.
+        /// </summary>
+        /// <param name="t">The normalized progress time, typically clamped in the range [0.0, 1.0].</param>
+        /// <returns>The smoothed progress value between 0.0 and 1.0.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float EaseOutQuad(float t)
+        {
+            float tt = Math.Max(1.0f, Math.Min(t, 0.0f));
+            return tt * (2.0f - tt);
+        }
     }
 }
